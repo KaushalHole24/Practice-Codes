@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="icon" href="images/Spotify Icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+
+        <!-- Side-bar -->
+        <div class="side-bar">
+            <div class="nav">
+                <div class="nav-option" style="opacity: 1;">
+                    <i class="fa-solid fa-house"></i>
+                    <a href="#">Home</a>
+                </div>
+                <div class="nav-option">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <a href="#">Search</a>
+                </div>
+            </div>
+            <!-- Side-bar library -->
+            <div class="library">
+                <div class="options">
+                    <div class="lib-option nav-option">
+                        <i class="fa-solid fa-book-open"></i>
+                        <a href="#">Your Library</a>
+                    </div>
+                    <div class="icons">
+                        <i class="fa-solid fa-plus"></i>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+
+                <div class="lib-box">
+                    <div class="box">
+                        <p class="box-p1">Create your first playlist</p>
+                        <p class="box-p2">It's easy we'll help you</p>
+                        <button class="badge">Create playlist</button>
+                    </div>
+
+                    <div class="box">
+                        <p class="box-p1">Let's find some podcast to follow</p>
+                        <p class="box-p2">We'll keep you updated on new episodes</p>
+                        <button class="badge">Browse podcasts</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main-content -->
+        <div class="main-content">
+            <!-- Main-content navbar -->
+            <div class="sticky-nav">
+                <div class="nav-icons">
+                    <i class="fa-solid fa-chevron-left m-hide"></i>
+                    <i class="fa-solid fa-chevron-right hide"></i>
+                </div>
+                <div class="nav-options">
+                    <button class="badge hide">Explore Premium</button>
+                    <button class="badge dark-badge"> <i class="fa-solid fa-download"></i> Install App</button>
+                    <a href="#"><i class="user fa-solid fa-circle-user"></i></a>
+                </div>
+            </div>
+            <!-- Main-content cards -->
+            <div class="cards">
+                <h2>Recently Played</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <img class="card-img" src="images/Top 50.jpg" alt="top50 cover">
+                        <i class="fa-solid fa-circle-play play-btn"></i>
+                        <p class="card-title">Top 50 - Global</p>
+                        <p class="card-info">Your daily updates of most played tracks...</p>
+                    </div>
+                </div>
+
+                <h2>Trending now near you</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <img class="card-img" src="images/Dhurandhar.jpeg" alt="top50 cover">
+                        <i class="fa-solid fa-circle-play play-btn"></i>
+                        <p class="card-title">Dhurandhar</p>
+                        <p class="card-info">Gehra Hua</p>
+                    </div>
+
+                    <div class="card">
+                        <img class="card-img" src="images/Ye Jawani.jpeg" alt="top50 cover">
+                        <i class="fa-solid fa-circle-play play-btn"></i>
+                        <p class="card-title">Ye Jawaani Hai Deewani</p>
+                        <p class="card-info">Pritam</p>
+                    </div>
+
+                    <div class="card">
+                        <img class="card-img" src="images/Ashiqui2.jpeg" alt="top50 cover">
+                        <i class="fa-solid fa-circle-play play-btn"></i>
+                        <p class="card-title">Aashiqui 2</p>
+                        <p class="card-info">Mithoon, Ankit Tiwari,   Jeet Gannguli</p>
+                    </div>
+
+                    <div class="card">
+                        <img class="card-img" src="images/Ranjhana.jpeg" alt="top50 cover">
+                        <i class="fa-solid fa-circle-play play-btn"></i>
+                        <p class="card-title">Raanjhan (From "Do Patti")</p>
+                        <p class="card-info">Mithoon, Ankit Tiwari,   Jeet Gannguli</p>
+                    </div>
+
+                    <div class="card">
+                        <img class="card-img" src="images/Karna Ajula.jpeg" alt="top50 cover">
+                        <i class="fa-solid fa-circle-play play-btn"></i>
+                        <p class="card-title">Making Memories</p>
+                        <p class="card-info">Karan Aujla</p>
+                    </div>
+
+                    <div class="card">
+                        <img class="card-img" src="images/Sanam Teri Kasam .jpeg" alt="top50 cover">
+                        <i class="fa-solid fa-circle-play play-btn"></i>
+                        <p class="card-title">Sanam Teri Kasam</p>
+                        <p class="card-info">Mithoon, Ankit Tiwari</p>
+                    </div>
+                </div>
+
+                <h2>Popular artists</h2>
+                <div class="card-container">
+                    <div class="card">
+                        <img class="round-card-img" src="images/Pritam.jpeg" alt="top50 cover">
+                        <i class="fa-solid fa-circle-play play-btn"></i>
+                        <p class="card-title">Pritam</p>
+                        <p class="card-info">Artist</p>
+                    </div>
+
+                    <div class="card">
+                        <img class="round-card-img" src="images/AR Rahman.jpeg" alt="top50 cover">
+                        <i class="fa-solid fa-circle-play play-btn"></i>
+                        <p class="card-title">A.R. Rahman</p>
+                        <p class="card-info">Artist</p>
+                    </div>
+
+                    <div class="card">
+                        <img class="round-card-img" src="images/Arijit Singh.jpeg" alt="top50 cover">
+                        <i class="fa-solid fa-circle-play play-btn"></i>
+                        <p class="card-title">Arijit Singh</p>
+                        <p class="card-info">Artist</p>
+                    </div>
+
+                    <div class="card">
+                        <img class="round-card-img" src="images/Sachin-Jigar.jpeg" alt="top50 cover">
+                        <i class="fa-solid fa-circle-play play-btn"></i>
+                        <p class="card-title">Sachin-Jigar</p>
+                        <p class="card-info">Artist</p>
+                    </div>
+
+                    <div class="card">
+                        <img class="round-card-img" src="images/Vishal-Shekhar.jpeg" alt="top50 cover">
+                        <i class="fa-solid fa-circle-play play-btn"></i>
+                        <p class="card-title">Vishal-Shekhar</p>
+                        <p class="card-info">Artist</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Main-content footer -->
+            <div class="footer">
+                <div class="line"></div>
+            </div>
+        </div>
+        <!-- Music-player -->
+        <div class="music-player">
+            <!-- Current Music -->
+            <div class="music">
+                <img src="images/Dhurandhar Rambha.jpeg" alt="Rambha Ho..">
+                <div class="music-title">
+                    <p class="song-name">Ramba Ho</p>
+                    <p class="song-singer">Shashwat Sachdev</p>
+                </div>
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-radio"></i>
+            </div>
+
+            <!-- Music Controls -->
+            <div class="music-controls">
+                <div class="player-controls">
+                    <i class="fa-solid fa-shuffle player-icons"></i>
+                    <i class="fa-solid fa-backward-step player-icons"></i>
+                    <i class="fa-solid fa-circle-play player-icons play-btn-size"></i>
+                    <i class="fa-solid fa-forward-step player-icons"></i>
+                    <i class="fa-solid fa-repeat player-icons"></i>
+                </div>
+                <div class="playback-bar">
+                    <span class="curr-time">00:00</span>
+                    <input type="range" class="progress-bar" min="0" max="100">
+                    <span class="tot-time">3:33</span>
+                </div>
+            </div>
+
+            <!-- Volume Controls -->
+            <div class="volume-controls">
+                <i class="fa-solid fa-music volume-controls-icons"></i>
+                <i class="fa-solid fa-layer-group volume-controls-icons"></i>
+                <i class="fa-solid fa-computer volume-controls-icons"></i>
+                <i class="fa-solid fa-volume-low volume-controls-icons"></i>
+                <input type="range" class="volume-range">
+                <i class="fa-solid fa-expand volume-controls-icons"></i>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+/* @property --percent {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
+} */
+
+.progress-circle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: conic-gradient(
+    #4caf50 var(--percent), 
+    #eeeeee 0deg
+  );
+  transition: var(--percent) 0.5s ease-in-out;
+  
+}
+/*
+.inner-circle {
+  width: 100px; // Slightly smaller than 120px to create the "border" effect 
+  height: 100px;
+  background-color: white;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
+  font-weight: bold;
+} 
+*/
+
+
+
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="progress-circle" id="progressCircle" style="--percent: 0%;">
+          <div class="inner-circle">
+            <span id="percentText">0%</span>
+          </div>
+        </div>
+      
+        <div class="controls">
+          <label><input type="checkbox" class="task"> Task 1</label>
+          <label><input type="checkbox" class="task"> Task 2</label>
+          <label><input type="checkbox" class="task"> Task 3</label>
+          <label><input type="checkbox" class="task"> Task 4</label>
+        </div>
+      </div>
+
+</body>
+<script>
+//     const checkboxes = document.querySelectorAll('.task');
+// const circle = document.querySelector('#progressCircle');
+// const text = document.querySelector('#percentText');
+
+// function updateProgress() {
+//   const total = checkboxes.length;
+//   const checked = document.querySelectorAll('.task:checked').length;
+//   const percentage = Math.round((checked / total) * 100);
+
+//   // Update the CSS Variable and the Text
+//   circle.style.setProperty('--percent', `${percentage}%`);
+//   text.textContent = `${percentage}%`;
+// }
+
+// checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
+
+
+const checkboxes = document.querySelectorAll('.task');
+const circle = document.querySelector('#progressCircle');
+const text = document.querySelector('#percentText');
+
+// We store the current value to know where to start the next animation
+let currentPercent = 0; 
+
+function updateProgress() {
+  const total = checkboxes.length;
+  const checked = document.querySelectorAll('.task:checked').length;
+  const targetPercent = Math.round((checked / total) * 100);
+
+  // We use an interval to "count" up or down smoothly
+  const duration = 400; // ms
+  const startTime = performance.now();
+  const startPercent = currentPercent;
+
+  function animate(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1); // Clamp between 0 and 1
+
+    // Smooth "Ease Out" math
+    const easeProgress = 1 - Math.pow(1 - progress, 3);
+    
+    // Calculate the frame's value
+    currentPercent = startPercent + (targetPercent - startPercent) * easeProgress;
+
+    // Apply to CSS and Text
+    circle.style.setProperty('--percent', `${currentPercent}%`);
+    text.textContent = `${Math.round(currentPercent)}%`;
+
+    if (progress < 1) {
+      requestAnimationFrame(animate);
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
+checkboxes.forEach(cb => cb.addEventListener('change', updateProgress));
+</script>
+</html>
