@@ -83,35 +83,8 @@
 // }
 
 // -------------------------------------------
-// 
+// Activity by changing url String
 // -------------------------------------------
-
-// let getCountry = document.querySelector("#getCountry");
-// let getCollege = document.querySelector("#getCollege");
-// let body = document.querySelector("body");
-// let ul = document.createElement("ul");
-// body.append(ul);
-// let country = "";
-
-// getCollege.addEventListener("click", ()=>{
-//     country = getCountry.value;
-//     getColleges();
-// });
-
-
-// let url = "https://api.potterdb.com/v1/books";
-
-// async function getColleges() {
-//     try{
-//         let res = await axios.get(url);
-//         console.log(res);
-//     } catch(err){
-//         console.log("Error: ", err);
-//     }
-// }
-
-
-
 
 let potterUrl = "https://api.potterdb.com/v1/books";
 let books = [];
@@ -146,3 +119,8 @@ btn.addEventListener("click", () => {
     let selectedBook = books.find(book => book.id == selectedID);
     output.textContent = selectedBook.attributes.title;
 });
+
+
+
+
+
