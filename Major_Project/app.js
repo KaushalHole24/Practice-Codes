@@ -5,6 +5,7 @@ const port = 8080;
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
 const path = require("path");
+const ejsMate = require("ejs-mate");
 
 const Listing = require("./models/listing");
 
@@ -13,6 +14,7 @@ app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride("_method"));
+app.engine("ejs", ejsMate);
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/wanderlust";
 
@@ -27,6 +29,10 @@ main()
 async function main(){
     await mongoose.connect(MONGO_URL);
 }
+
+app.get("/", (req,res)=>{
+    res.send("This is Home Route");
+});
 
 // Index Route
 app.get("/listings", async(req, res)=>{
@@ -46,7 +52,7 @@ app.get("/listings/:id", async(req, res)=>{
     res.render("listings/show", {listing});
 });
 
-// Edit Route
+// Edit form Route
 app.get("/listings/:id/edit", async (req,res)=>{
     let {id} = req.params;
     let listing = await Listing.findById(id);
@@ -60,12 +66,14 @@ app.post("/listings", async (req,res)=>{
     res.redirect("/listings");
 });
 
+// Edit Route
 app.patch("/listings/:id", async(req, res)=>{
     let {id} = req.params;
     await Listing.findByIdAndUpdate( id, {...req.body.listing}, {runValidators: true});
     res.redirect(`/listings/${id}`);
 });
 
+// Delete Route
 app.delete("/listings/:id", async(req,res)=>{
     let {id} = req.params;
     await Listing.findByIdAndDelete(id);
