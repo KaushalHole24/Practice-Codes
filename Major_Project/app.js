@@ -43,12 +43,38 @@ app.get("/listings/new", (req,res)=>{
 app.get("/listings/:id", async(req, res)=>{
     let {id} = req.params;
     let listing = await Listing.findById(id);
-    console.log(listing);
     res.render("listings/show", {listing});
 });
 
+// Edit Route
+app.get("/listings/:id/edit", async (req,res)=>{
+    let {id} = req.params;
+    let listing = await Listing.findById(id);
+    res.render("listings/edit", {listing});
+});
+
+// Create Route
+app.post("/listings", async (req,res)=>{
+    const newListing = new Listing(req.body.listing);
+    await newListing.save();
+    res.redirect("/listings");
+});
+
+app.patch("/listings/:id", async(req, res)=>{
+    let {id} = req.params;
+    await Listing.findByIdAndUpdate( id, {...req.body.listing}, {runValidators: true});
+    res.redirect(`/listings/${id}`);
+});
+
+app.delete("/listings/:id", async(req,res)=>{
+    let {id} = req.params;
+    await Listing.findByIdAndDelete(id);
+    res.redirect("/listings");
+});
 
 
 app.listen(port, (req, res)=>{
     console.log("Server Started at localhost:8080");
 });
+
+
